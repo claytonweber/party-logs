@@ -13,6 +13,7 @@ const getAllParties = async () => {
   try {
     const response = await fetch(PARTIES_API_URL);
     const parties = await response.json();
+    console.log(parties);
     return parties;
   } catch (error) {
     console.error(error);
@@ -130,6 +131,9 @@ const renderParties = async (parties) => {
 // init function
 const init = async () => {
   // your code here
+  const parties = await getAllParties();
+  console.log(parties);
+  renderParties(parties);
 };
 
 init();
